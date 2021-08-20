@@ -63,16 +63,88 @@
            <div class="row row-cols-1 row-cols-lg-2">
                <div class="col-lg-8">
                    <pre class="line-numbers"><code class="language-javascript">
-                    //Call Hello World
-                    function HelloWorld(){
-                        alert("Hellow World");
+                    //Get the starting and ending values from the page
+                    //Validate to make sure all numbers are integers
+                    function getValues(){
+
+                        let startValue = document.getElementById("startValue").value;
+                        let endValue = document.getElementById("endValue").value;
+                    
+                        startValue = parseInt(startValue);
+                        endValue = parseInt(endValue);
+                    
+                        if(Number.isInteger(startValue) && Number.isInteger(endValue)){
+
+                            //Call generateNumber()
+                            let numbers = generateNumbers(startValue, endValue);
+                        
+                            //Call displaynumbers()
+                            displayNumbers(numbers);
+                        
+                        } else {
+                            alert("You must enter integers");
+                        }
+                    
+                    }  
+
+                    //Generate numbers from the startValue to the endValue
+                    //Store all numbers in an array
+                    function generateNumbers(sValue, eValue){
+
+                        let numbers = [];
+
+                        for(let index = sValue; index &lt;= eValue; index++){
+
+                            numbers.push(index);
+                        }
+                    
+                        return numbers;
+                    }
+
+                    //Display the numbers and mark even numbers to make them bold
+                    function displayNumbers(numbers){
+
+                        let templateRows = "";
+                    
+                        for (let index = 0; index &lt; numbers.length; index++) {
+
+                            let className = "even";
+                            let number = numbers[index];
+                        
+                            if(number % 2 == 0){
+                                className = "even";
+                            }
+                            else{
+                                className = "odd";
+                            }
+                        
+                            templateRows += `&lt;tr>&lt;td class = "${className}">${number}&lt;/td>&lt;/tr>`;
+                        }
+                    
+                        document.getElementById("results").innerHTML = templateRows;
                     }
                    </code></pre>
                </div>
                <div class="col-lg-4">
-                   <p>The Code is structured in one function.</p>
-                   <h5>Hello World</h5>
-                   <p>Hello World is a function that displays an alert with "Hello World".</p>
+                   <p>The Code is structured in three function.</p>
+                   <h5>getValues()</h5>
+                   <p>
+                    getValues is a function that uses the getElementById method to get the starting and ending values from the users input.
+                    It parses the values into integers and validates using the isInteger method. If both values are integers it calls the generate numbers function and stores the generated numbers in an array.
+                    It then calls the displayNumbers fuction and passes the array of numbers to display.
+                    If no integers were entered it alerts the user to enter integers.   
+                   </p>
+                   <h5>generateNumbers()</h5>
+                   <p>generateNumbers is a fuction that generates an array of numbers given a starting and ending value.
+                    Using a for loop, an array is built beginning at the starting value until the loop surpasses the ending value.
+                    The function the returns the array of numbers.</p>
+                   <h5>displayNumbers()</h5>
+                   <p>
+                    displayNumbers is a function that displays each element of an array and marks the number as odd or even.
+                    Using a for loop the function loops through the array and adds to a string using template literals.
+                    The string contains table row and table data HTML tags with a class labeling the number as even or odd.
+                    Using the innerHTML element property, the string is passed to the table in the HTML page to display the numbers in table rows.
+                   </p>
                </div>
            </div>
        </div>
