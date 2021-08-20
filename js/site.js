@@ -1,20 +1,19 @@
-//get the values from the page
-//starts or controller function
+//Get the starting and ending values from the page
+//Validate to make sure all numbers are integers
 function getValues(){
-    //get values from the page
+    
     let startValue = document.getElementById("startValue").value;
     let endValue = document.getElementById("endValue").value;
 
-    //parse values into integers
     startValue = parseInt(startValue);
     endValue = parseInt(endValue);
 
     if(Number.isInteger(startValue) && Number.isInteger(endValue)){
-        //generate
-        //call generateNumber()
+        
+        //Call generateNumber()
         let numbers = generateNumbers(startValue, endValue);
 
-        //call displaynumbers()
+        //Call displaynumbers()
         displayNumbers(numbers);
 
     } else {
@@ -23,24 +22,23 @@ function getValues(){
 
 }  
 
-//generate numbers from the startValue to the endValue
-//logic function(s)
+//Generate numbers from the startValue to the endValue
+//Store all numbers in an array
 function generateNumbers(sValue, eValue){
-    //write function here
+    
     let numbers = [];
-
-    //we want to get all numbers from starting value to ending value
+    
     for(let index = sValue; index <= eValue; index++){
+        
         numbers.push(index);
     }
 
     return numbers;
 }
 
-//display the numbers and mark even numbers bold
-//display or view functions
+//Display the numbers and mark even numbers to make them bold
 function displayNumbers(numbers){
-    //write function here
+    
     let templateRows = "";
 
     for (let index = 0; index < numbers.length; index++) {
@@ -54,6 +52,7 @@ function displayNumbers(numbers){
         else{
             className = "odd";
         }
+
         templateRows += `<tr><td class = "${className}">${number}</td></tr>`;
     }
 
