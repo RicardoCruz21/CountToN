@@ -19,7 +19,7 @@
     <!-- External CSS -->
     <link rel="stylesheet" href="/css/site.css">
 
-    <link rel="icon" type="image/png" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" href="/img/favicon-16x16.png">
    
 </head>
 
@@ -64,16 +64,19 @@
                    <h4 class="lead">
                     Lets count to number n. A Javascript coding exercise using loops. Enter a starting value and ending value and this program will display all the numbers between the values. Displays the even numbers in <strong>BOLD.</strong>
                    </h4>
-                   <h2 class="mt-5 border-bottom border-2">Instructions</h2>
-                   <p>Enter a starting value and an ending value. Press the button and the values will appear.</p>
+                   <div class="row border-top border-2 mt-5">
+                        <h2>Instructions</h2>
+                        <p>Enter a starting value and an ending value. Press the button and the values will appear.</p>
+                    </div>
                </div>
                <div class="col col-lg-8">
-                    <h2>Enter Values</h2>
                     <form class="row gy-2 gx-3">
                         <div class="col">
+                            <h4><label for="startValue" class="form-label">Enter a Starting Number:</label></h4>
                             <input id="startValue" type="number" class="form-control" placeholder="Start Value" value="0" aria-label="Start Value">
                         </div>
                         <div class="col">
+                            <h4><label for="startValue" class="form-label">Enter a Ending Number:</label></h4>
                             <input id="endValue" type="number" class="form-control" placeholder="End Value" value="100" aria-label="End Value">
                         </div>
                         <div class="col-12 d-flex justify-content-end">
